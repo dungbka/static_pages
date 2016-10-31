@@ -42,6 +42,11 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'example.com' # Don't use this literally; use your local dev host instead
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
@@ -51,4 +56,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+
 end
